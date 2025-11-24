@@ -1,0 +1,335 @@
+ :root {
+  --bg-page: #f5f7fb;
+  --bg-card: #ffffff;
+  --bg-pill: #e9f1ff;
+  --bg-pill-active: #1f8bff;
+  --bg-pill-active-soft: #59a9ff;
+  --text-main: #1b1f3b;
+  --text-muted: #7b8499;
+  --text-accent: #007bff;
+  --border-soft: #e1e5f2;
+  --shadow-soft: 0 22px 45px rgba(15, 35, 52, 0.08);
+  --radius-pill: 999px;
+  --transition-fast: 150ms ease-out;
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* PAGE GLOBALE */
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 16px;
+  font-family: var(--font-main);
+  background: var(--bg-page);
+  color: var(--text-main);
+}
+
+/* CARTE PRINCIPALE */
+
+.payment-section {
+  width: min(1100px, 100%);
+  background: var(--bg-card);
+  border-radius: 24px;
+  padding: 40px 48px 48px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--border-soft);
+}
+
+/* HEADER */
+
+.payment-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.payment-title {
+  margin: 0;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 600;
+}
+
+.payment-title span {
+  color: var(--text-accent);
+}
+
+.payment-subtitle {
+  margin: 8px 0 0;
+  font-size: 18px;
+  color: var(--text-muted);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* LAYOUT DU CONTENU */
+
+.payment-body {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+@media (max-width: 900px) {
+  .payment-body {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* COLONNE GAUCHE : CERCLE + PILLS + FLECHES */
+
+.payment-left {
+  flex: 0 0 55%;
+}
+
+.diagram {
+  position: relative;
+  height: 360px;
+}
+/* Une ligne = badge numéro + pill texte */
+.step-row {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0; /* Pas de gap pour le chevauchement */
+}
+
+/* Positions pour chaque étape */
+.step-pos-1 { top: 35px;  left: 256px; }
+.step-pos-2 { top: 110px; left: 296px; }
+.step-pos-3 { top: 185px; left: 319px; }
+.step-pos-4 { top: 260px; left: 277px; }
+.step-pos-5 { top: 320px; left: 230px; }
+
+/* Badge (01, 02, 03...) séparé */
+.step-index-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(163.22deg, #e3f3ff 3.4%, #c1e2fc 87.1%);
+  color: #1b1f3b;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 12px 24px rgba(12, 68, 150, 0.12);
+  position: relative;
+  z-index: 2; /* Badge au-dessus du bouton */
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* CERCLE A GAUCHE */
+
+.info-circle {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #e9f1ff 60%, #f9fbff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.info-circle::before,
+.info-circle::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 123, 255, 0.12);
+}
+
+.info-circle::before {
+  width: 115%;
+  height: 115%;
+}
+
+.info-circle::after {
+  width: 135%;
+  height: 135%;
+}
+
+.info-circle-text {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.info-circle-text span {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-accent);
+  font-weight: 700;
+}
+
+/* SVG DES FLECHES */
+
+.diagram-arrows {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* PILLS (ONGLETS) AUTOUR DU CERCLE */
+
+.step-button {
+  display: flex;
+  align-items: center;
+  padding: 0 32px 0 40px; /* Padding gauche pour l'espace du badge */
+  min-width: 180px;
+  height: 50px; /* Même hauteur que le badge */
+  border-radius: 50px; /* Complètement arrondi */
+  border: none;
+  background: linear-gradient(110.33deg, #00DBFF -45.65%, #2765FF 135.82%);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: all var(--transition-fast);
+  box-shadow: 0 10px 18px rgba(12, 68, 150, 0.18);
+  margin-left: 6px; /* Chevauchement avec le badge */
+  position: relative;
+  z-index: 1;
+}
+
+
+
+/* Positions approximatives pour coller à la maquette Figma */
+.step-pos-1 { top: 35px;  left: 256px; }
+.step-pos-2 { top: 110px; left: 296px; }
+.step-pos-3 { top: 185px; left: 319px; }
+.step-pos-4 { top: 260px; left: 277px; }
+.step-pos-5 { top: 320px; left: 230px; }
+
+.step-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(12, 68, 150, 0.24);
+}
+
+.step-button:focus-visible {
+  outline: 2px solid var(--text-accent);
+  outline-offset: 2px;
+}
+
+.step-index {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-main);
+  flex-shrink: 0;
+}
+
+.step-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Etat actif */
+
+.step-button.is-active {
+  background: linear-gradient(151.84deg, #EAF2FF 20.07%, #C1E0F9 90.03%);
+  color: #1b1f3b;
+}
+
+
+.step-button.is-active .step-index {
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--bg-pill-active);
+}
+
+/* COLONNE DROITE : CONTENU + NUMERO */
+
+.payment-right {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+}
+
+/* Contenu texte */
+
+.step-content-title {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.step-content-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.step-content-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.step-bullet-icon {
+  margin-top: 3px;
+  font-size: 10px;
+}
+
+/* Grand numéro bleu clair à droite */
+
+.step-number {
+  font-size: 56px;
+  font-weight: 600;
+  color: rgba(161, 196, 255, 0.7);
+  margin-left: 40px;
+}
+
+/* RESPONSIVE : passer la partie droite en dessous si écran étroit */
+
+@media (max-width: 700px) {
+  .payment-right {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 24px;
+  }
+
+  .step-number {
+    font-size: 40px;
+    margin-left: 16px;
+  }
+
+  .diagram {
+    height: 420px;
+  }
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment Software Section</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <section class="payment-section" aria-label="Payment software process">
+    <header class="payment-header">
+      <h1 class="payment-title">
+        Paying Builders With <span>Secure</span>
+      </h1>
+      <p class="payment-subtitle">Payment Software</p>
+    </header>
+
+    <div class="payment-body">
+  <!-- LEFT -->
+  <div class="payment-left">
+    <div class="diagram">
+        
+      <!-- Cercle -->
+      <div class="info-circle">
+        <div class="info-circle-text">
+          What Is
+          <span>Lorem?</span>
+        </div>
+      </div>
+
+           <!-- Steps : un badge numéro + un pill texte -->
+      <div class="step-row step-pos-1">
+        <button class="step-index-btn" type="button">01</button>
+        <button
+          class="step-button is-active"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          data-step="1"
+          data-title="Quote"
+          data-subtitle="Create and share a clear, upfront quote with the customer."
+          data-bullets='[
+            "Tradesperson agrees a quote with the customer upfront.",
+            "Tradesperson uploads quote to Lorem and sends it to the customer."
+          ]'
+        >
+          Quote
+        </button>
+      </div>
+
+      <div class="step-row step-pos-2">
+        <button class="step-index-btn" type="button">02</button>
+        <button
+          class="step-button"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          data-step="2"
+          data-title="Pay Fee"
+          data-subtitle="Collect the initial payment safely through the platform."
+          data-bullets='[
+            "Customer reviews the quote and accepts the terms.",
+            "Customer pays the agreed fee into the secure account."
+          ]'
+        >
+          Pay Fee
+        </button>
+      </div>
+
+      <div class="step-row step-pos-3">
+        <button class="step-index-btn" type="button">03</button>
+        <button
+          class="step-button"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          data-step="3"
+          data-title="Complete Work"
+          data-subtitle="The work is completed while funds remain securely held."
+          data-bullets='[
+            "Tradesperson completes the work as agreed in the quote.",
+            "Customer can track progress and share updates inside Lorem."
+          ]'
+        >
+          Complete Work
+        </button>
+      </div>
+
+      <div class="step-row step-pos-4">
+        <button class="step-index-btn" type="button">04</button>
+        <button
+          class="step-button"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          data-step="4"
+          data-title="Rate"
+          data-subtitle="Both sides can leave feedback once the work is delivered."
+          data-bullets='[
+            "Customer reviews the quality of the work.",
+            "Tradesperson builds their reputation with verified ratings."
+          ]'
+        >
+          Rate
+        </button>
+      </div>
+
+      <div class="step-row step-pos-5">
+        <button class="step-index-btn" type="button">05</button>
+        <button
+          class="step-button"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          data-step="5"
+          data-title="Release Fund"
+          data-subtitle="Funds are released quickly and securely to the tradesperson."
+          data-bullets='[
+            "Once the customer is satisfied, funds are released.",
+            "Both parties receive confirmation of the transaction."
+          ]'
+        >
+          Release Fund
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="payment-right">
+    <div class="step-content">
+      <h3 class="step-content-title" id="stepTitle">Quote</h3>
+      <ul class="step-content-list" id="stepBullets">
+        <li>
+          <span class="step-bullet-icon">✱</span>
+          <span>Tradesperson agrees a quote with the customer upfront.</span>
+        </li>
+        <li>
+          <span class="step-bullet-icon">✱</span>
+          <span>Tradesperson uploads quote to Lorem and sends it to the customer.</span>
+        </li>
+      </ul>
+    </div>
+    <div class="step-number" id="stepNumber">01</div>
+  </div>
+</div>
+
+  </section>
+
+  <!-- JS -->
+  <script src="js/main.js" defer></script>
+</body>
+</html>
